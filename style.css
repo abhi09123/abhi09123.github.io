@@ -334,7 +334,7 @@ h1 {
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
 }
 
@@ -482,5 +482,8 @@ footer {
         flex-direction: column;
         gap: 2rem;
         align-items: flex-start;
+    }
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 }
