@@ -21,7 +21,7 @@
                 <a href="#about">About</a>
                 <a href="#now">Now</a>
                 <a href="#shipped">Shipped</a>
-                <a href="mailto:abhinav0872@gmail.com" class="cta-btn">Contact</a>
+                <a href="mailto:abhinav0872@gmail.com" class="cta-btn" onclick="copyEmail(event, this)">Contact</a>
             </div>
         </div>
     </nav>
@@ -153,6 +153,20 @@
         document.querySelectorAll('section, .product-card').forEach(el => {
             observer.observe(el);
         });
+
+        function copyEmail(e, el) {
+            e.preventDefault();
+            navigator.clipboard.writeText('abhinav0872@gmail.com').then(() => {
+                const originalText = el.innerText;
+                el.innerText = 'Copied!';
+                setTimeout(() => {
+                    el.innerText = originalText;
+                }, 2000);
+            }).catch(err => {
+                // Fallback if clipboard API fails
+                window.location.href = 'mailto:abhinav0872@gmail.com';
+            });
+        }
     </script>
 </body>
 </html>
